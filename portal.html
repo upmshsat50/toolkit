@@ -49,12 +49,11 @@
           <a href="#projects">Projects</a>
           <a href="#handover">Handover</a>
           <a href="#resources">Resources</a>
-          <a href="#directory">Directory</a>
         </nav>
 
         <div class="sidebar-note">
-          <strong>Working SaaS starter</strong>
-          <span>Authentication is live. Database modules can be connected next.</span>
+          <strong>Phase 3 live</strong>
+          <span>Project registry and continuity handovers are now available.</span>
         </div>
       </aside>
 
@@ -77,12 +76,12 @@
           <article>
             <span>Active projects</span>
             <strong id="dashboard-project-count">—</strong>
-            <small>Project Registry is the next module after Phase 2.</small>
+            <small id="dashboard-project-detail">Loading project registry…</small>
           </article>
           <article>
             <span>Pending handovers</span>
-            <strong>—</strong>
-            <small>Structured handover workflow ready for integration.</small>
+            <strong id="dashboard-handover-count">—</strong>
+            <small id="dashboard-handover-detail">Loading handover queue…</small>
           </article>
           <article>
             <span>Toolkit resources</span>
@@ -98,7 +97,7 @@
                 <span class="portal-label">Start here</span>
                 <h2>My Rotation</h2>
               </div>
-              <span class="portal-chip">Setup pending</span>
+              <span class="portal-chip">Connected</span>
             </div>
 
             <div id="current-rotation-summary" class="current-rotation-summary">
@@ -137,23 +136,85 @@
             </div>
           </div>
 
-          <div class="portal-community-grid">
-            <article><span>01</span><strong>Palo</strong><small>Leyte</small></article>
-            <article><span>02</span><strong>Alangalang</strong><small>Dr. Angelita Jaya</small></article>
-            <article><span>03</span><strong>Dagami</strong><small>Leyte</small></article>
-            <article><span>04</span><strong>Tolosa</strong><small>Dr. Maria Sheryl P. Indencia</small></article>
-            <article><span>05</span><strong>Tanauan</strong><small>Leyte</small></article>
-            <article><span>06</span><strong>Dulag</strong><small>Leyte</small></article>
+          <div id="portal-communities" class="portal-community-grid">
+            <article><span>01</span><strong>Loading…</strong><small>Please wait</small></article>
+          </div>
+        </section>
+
+        <section class="portal-panel" id="projects">
+          <div class="portal-panel-heading">
+            <div>
+              <span class="portal-label">Project registry</span>
+              <h2>Community Projects</h2>
+            </div>
+          </div>
+
+          <div id="portal-projects" class="portal-project-grid">
+            <article class="project-portal-card">
+              <h3>Loading projects…</h3>
+              <p>Please wait while the registry is loaded.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portal-panel" id="handover">
+          <div class="portal-panel-heading">
+            <div>
+              <span class="portal-label">Continuity</span>
+              <h2>Structured Handover</h2>
+            </div>
+            <span class="portal-chip">Phase 3</span>
+          </div>
+
+          <div id="portal-handover-eligibility" class="portal-mini-note">
+            Loading handover access…
+          </div>
+
+          <form id="portal-handover-form" class="portal-handover-form" hidden>
+            <label class="form-wide">
+              <span>Project</span>
+              <select id="portal-handover-project" required>
+                <option value="">Select project</option>
+              </select>
+            </label>
+            <label>
+              <span>Outgoing batch</span>
+              <input id="portal-handover-batch" type="text" placeholder="e.g. MD24">
+            </label>
+            <label class="form-wide">
+              <span>Accomplishments</span>
+              <textarea id="portal-handover-accomplishments" rows="3" placeholder="What has already been done?"></textarea>
+            </label>
+            <label class="form-wide">
+              <span>Pending tasks</span>
+              <textarea id="portal-handover-pending" rows="3" placeholder="What should the next batch continue?"></textarea>
+            </label>
+            <label class="form-wide">
+              <span>Recommendations</span>
+              <textarea id="portal-handover-recommendations" rows="3" placeholder="Recommendations, reminders, and risks"></textarea>
+            </label>
+            <div class="admin-form-actions form-wide">
+              <button class="button button-maroon" type="submit">Submit Handover</button>
+            </div>
+          </form>
+
+          <div id="portal-handover-message" class="admin-message" aria-live="polite"></div>
+
+          <div id="portal-handover-list" class="portal-handover-list">
+            <article class="portal-handover-card">
+              <strong>Loading handovers…</strong>
+              <span>Please wait.</span>
+            </article>
           </div>
         </section>
 
         <section class="portal-next-step">
           <div>
-            <span class="portal-label">Next development phase</span>
-            <h2>Connect the portal to actual Supabase tables.</h2>
+            <span class="portal-label">Phase 3 complete</span>
+            <h2>Project registry and continuity workflows are now connected.</h2>
             <p>
-              Authentication is now separated from the public site. Next we can add profiles/roles,
-              rotations, communities, project records, files, handovers, and row-level access.
+              The next recommended phase is documents/uploads, richer monitoring indicators,
+              and faculty approval workflows on top of the project and handover modules.
             </p>
           </div>
         </section>

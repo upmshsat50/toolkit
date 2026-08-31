@@ -701,3 +701,171 @@ button,input{font:inherit}
   .form-wide{grid-column:auto}
   .admin-community-grid{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   PHASE 3 — PROJECT REGISTRY + HANDOVER
+   ========================================================= */
+.project-admin-form,
+.handover-admin-form,
+.portal-handover-form{
+  background:#f7f3eb;
+  border:1px solid var(--line);
+  padding:16px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:11px;
+  margin-bottom:13px
+}
+.project-admin-form[hidden]{display:none}
+.project-admin-form label,
+.handover-admin-form label,
+.portal-handover-form label{display:grid;gap:4px}
+.project-admin-form label>span,
+.handover-admin-form label>span,
+.portal-handover-form label>span{
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:#5f574e;
+  font-weight:900
+}
+.project-admin-form input,
+.project-admin-form textarea,
+.project-admin-form select,
+.handover-admin-form input,
+.handover-admin-form textarea,
+.handover-admin-form select,
+.portal-handover-form input,
+.portal-handover-form textarea,
+.portal-handover-form select{
+  border:1px solid #cfc6ba;
+  background:#fff;
+  padding:9px;
+  font-size:10px;
+  font-family:Arial, Helvetica, sans-serif
+}
+.project-admin-form textarea,
+.handover-admin-form textarea,
+.portal-handover-form textarea{resize:vertical;min-height:90px}
+
+.admin-project-grid,
+.portal-project-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px
+}
+.admin-project-card,
+.project-portal-card,
+.portal-handover-card{
+  border:1px solid var(--line);
+  background:#fff;
+  padding:16px
+}
+.admin-project-card h3,
+.project-portal-card h3{
+  margin:8px 0 8px;
+  font-size:20px;
+  color:var(--maroon);
+  font-family:var(--serif)
+}
+.admin-project-card p,
+.project-portal-card p,
+.portal-handover-card p{
+  margin:0 0 11px;
+  font-size:10px;
+  font-family:var(--serif);
+  color:var(--muted);
+  line-height:1.55
+}
+.project-card-top{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap
+}
+.project-card-top small{
+  font-size:8px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.06em
+}
+.project-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:7px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  background:#ece6dc;
+  color:#574f46
+}
+.project-pill.status-planning{background:#efe6da;color:#8a5200}
+.project-pill.status-active{background:#e7f5ea;color:#23633b}
+.project-pill.status-for_handover{background:#f7ecd0;color:#946200}
+.project-pill.status-completed{background:#e6f0f9;color:#1e527f}
+.project-pill.status-archived{background:#ececec;color:#666}
+.project-pill.status-draft{background:#ececec;color:#666}
+.project-pill.status-submitted{background:#f7ecd0;color:#946200}
+.project-pill.status-approved{background:#e7f5ea;color:#23633b}
+.project-pill.status-returned{background:#f6e4e4;color:#8d1f24}
+
+.project-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:6px
+}
+.project-meta span{
+  display:inline-flex;
+  padding:5px 8px;
+  background:#f7f1e8;
+  border:1px solid #e3d7c7;
+  font-size:8px;
+  font-weight:700;
+  color:#5f574e
+}
+.portal-mini-note{
+  margin:-6px 0 12px;
+  font-size:10px;
+  font-family:var(--serif);
+  color:var(--muted)
+}
+.portal-handover-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+  margin-top:14px
+}
+.portal-handover-card strong{
+  display:block;
+  margin:8px 0 4px;
+  font-family:var(--serif);
+  color:var(--green);
+  font-size:16px
+}
+.portal-handover-card span{
+  display:block;
+  font-family:var(--serif);
+  font-size:9px;
+  color:#4f4a42
+}
+
+@media(max-width:1100px){
+  .project-admin-form,
+  .handover-admin-form,
+  .portal-handover-form{grid-template-columns:repeat(2,1fr)}
+  .admin-project-grid,
+  .portal-project-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .project-admin-form,
+  .handover-admin-form,
+  .portal-handover-form{grid-template-columns:1fr}
+  .admin-project-grid,
+  .portal-project-grid,
+  .portal-handover-list{grid-template-columns:1fr}
+}
