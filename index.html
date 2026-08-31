@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UP Manila School of Health Sciences Community-Based Medicine public information site and toolkit portal." />
+  <title>UPM-SHS Community-Based Medicine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="UPM-SHS Community-Based Medicine home">
+        <div class="brand-mark" aria-hidden="true">UP</div>
+        <div class="brand-copy">
+          <span>University of the Philippines Manila</span>
+          <strong>School of Health Sciences</strong>
+        </div>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#learning">Learning Pathway</a>
+        <a href="#communities">Communities</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-portal" href="#portal">Toolkit Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Community-Based Medical Education</p>
+          <h1>Learning medicine with communities, across the continuum of care.</h1>
+          <p class="hero-lead">
+            The UP Manila School of Health Sciences Community-Based Medicine program places learners within
+            real local health systems—working with communities, health workers, local governments, and
+            primary care teams to understand health needs and support sustainable action.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#about">Explore the program</a>
+            <a class="button secondary" href="#communities">View community sites</a>
+          </div>
+
+          <div class="credibility-strip" aria-label="Program highlights">
+            <div>
+              <strong>Community-first</strong>
+              <span>Learning grounded in local realities</span>
+            </div>
+            <div>
+              <strong>Longitudinal</strong>
+              <span>Clerkship to internship continuity</span>
+            </div>
+            <div>
+              <strong>Health systems</strong>
+              <span>Primary care, governance, and public health</span>
+            </div>
+          </div>
+        </div>
+
+        <aside id="portal" class="portal-card" aria-labelledby="portal-title">
+          <div class="portal-label">Toolkit Portal</div>
+          <h2 id="portal-title">Sign in to your community workspace</h2>
+          <p class="portal-intro">
+            Access community profiles, previous projects, forms, learning resources, and structured handovers.
+          </p>
+
+          <form id="login-form" class="login-form">
+            <label>
+              <span>Email address</span>
+              <input type="email" name="email" placeholder="name@up.edu.ph" autocomplete="email" required />
+            </label>
+
+            <label>
+              <span>Password</span>
+              <div class="password-row">
+                <input id="password" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+                <button id="toggle-password" class="show-password" type="button">Show</button>
+              </div>
+            </label>
+
+            <button class="button primary portal-submit" type="submit">Sign in</button>
+            <p id="login-message" class="login-message" aria-live="polite"></p>
+          </form>
+
+          <div class="portal-note">
+            <strong>UPM-SHS internal access</strong>
+            <span>Accounts will be provisioned by the program administrator. Public registration is disabled.</span>
+          </div>
+
+          <a class="portal-help" href="#contact">Need access or assistance?</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container split-section">
+        <div>
+          <p class="eyebrow">About the program</p>
+          <h2>Community medicine as a living learning environment.</h2>
+        </div>
+        <div class="section-copy">
+          <p>
+            Community-based medical education moves learning beyond the classroom and hospital. Students
+            engage with local health systems, community priorities, health programs, families, and the
+            everyday conditions that shape access to care.
+          </p>
+          <p>
+            The digital Community Health Toolkit is envisioned as a companion to this training—helping
+            preserve institutional memory, improve project continuity, and make essential resources easier
+            to access across student batches.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning" class="section soft-bg">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Learning pathway</p>
+          <h2>From community entry to continuity.</h2>
+          <p>The toolkit is organized around the actual flow of community-based medical learning.</p>
+        </div>
+
+        <div class="pathway-grid">
+          <article class="path-card">
+            <span class="path-number">01</span>
+            <h3>Prepare</h3>
+            <p>Orientation, site familiarization, scope of practice, stakeholders, and referral pathways.</p>
+          </article>
+          <article class="path-card">
+            <span class="path-number">02</span>
+            <h3>Understand</h3>
+            <p>Community profile, health-system mapping, local priorities, and previous batch records.</p>
+          </article>
+          <article class="path-card">
+            <span class="path-number">03</span>
+            <h3>Assess</h3>
+            <p>Community diagnosis, family and population perspectives, and data-informed priority setting.</p>
+          </article>
+          <article class="path-card">
+            <span class="path-number">04</span>
+            <h3>Act</h3>
+            <p>Planning, implementation, stakeholder coordination, and community-engaged interventions.</p>
+          </article>
+          <article class="path-card">
+            <span class="path-number">05</span>
+            <h3>Monitor</h3>
+            <p>Indicators, evaluation, documentation, reflection, and sustainability planning.</p>
+          </article>
+          <article class="path-card">
+            <span class="path-number">06</span>
+            <h3>Hand over</h3>
+            <p>Structured endorsement so the next batch can continue meaningful work instead of starting over.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="communities" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Current community sites</p>
+          <h2>Learning across partner communities in Leyte.</h2>
+          <p>Initial sites included in the current toolkit planning and community mapping work.</p>
+        </div>
+
+        <div class="community-grid">
+          <article class="community-card featured">
+            <div class="community-topline">
+              <span>Alangalang</span>
+              <span class="site-status">Current site</span>
+            </div>
+            <h3>Alangalang, Leyte</h3>
+            <p>Community-based learning site with longitudinal project and health-system mapping potential.</p>
+            <div class="community-meta">
+              <span>Preceptor</span>
+              <strong>Dr. Angelita Jaya</strong>
+            </div>
+          </article>
+
+          <article class="community-card">
+            <div class="community-topline"><span>Palo</span><span class="site-status">Current site</span></div>
+            <h3>Palo, Leyte</h3>
+            <p>Municipal health-system and community-based learning site.</p>
+          </article>
+
+          <article class="community-card">
+            <div class="community-topline"><span>Dagami</span><span class="site-status">Current site</span></div>
+            <h3>Dagami, Leyte</h3>
+            <p>Community-based learning site for clerkship and internship activities.</p>
+          </article>
+
+          <article class="community-card featured">
+            <div class="community-topline">
+              <span>Tolosa</span>
+              <span class="site-status">Current site</span>
+            </div>
+            <h3>Tolosa, Leyte</h3>
+            <p>Community-based learning site supporting health systems and longitudinal community engagement.</p>
+            <div class="community-meta">
+              <span>Preceptor</span>
+              <strong>Dr. Maria Sheryl P. Indencia</strong>
+            </div>
+          </article>
+
+          <article class="community-card">
+            <div class="community-topline"><span>Tanauan</span><span class="site-status">Current site</span></div>
+            <h3>Tanauan, Leyte</h3>
+            <p>Community-based learning and local health-system engagement site.</p>
+          </article>
+
+          <article class="community-card">
+            <div class="community-topline"><span>Dulag</span><span class="site-status">Current site</span></div>
+            <h3>Dulag, Leyte</h3>
+            <p>Community-based learning site for health-system and community engagement experiences.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="section maroon-band">
+      <div class="container resource-layout">
+        <div>
+          <p class="eyebrow light">Community Health Toolkit</p>
+          <h2>A living repository for learning, continuity, and coordination.</h2>
+          <p>
+            The protected toolkit will bring together resources that students and faculty repeatedly need
+            during community clerkship and internship.
+          </p>
+        </div>
+
+        <div class="resource-list">
+          <div><span>01</span><strong>Integrated Manual & Learning Modules</strong></div>
+          <div><span>02</span><strong>Forms, Templates & Checklists</strong></div>
+          <div><span>03</span><strong>Community Profiles & Health-System Directory</strong></div>
+          <div><span>04</span><strong>Past & Ongoing Project Registry</strong></div>
+          <div><span>05</span><strong>Project Monitoring & Handover Records</strong></div>
+          <div><span>06</span><strong>MHO, DTTB & Preceptor Directory</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Program access</p>
+          <h2>Need access to the Community Health Toolkit?</h2>
+          <p>
+            Toolkit accounts, internal documents, project records, and community workspaces are intended
+            for authorized UPM-SHS users and designated partners.
+          </p>
+        </div>
+        <a class="button secondary dark" href="mailto:">Contact program administrator</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>University of the Philippines Manila</strong>
+        <span>School of Health Sciences · Community-Based Medicine</span>
+      </div>
+      <span>Community Health Toolkit · Working public site</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
