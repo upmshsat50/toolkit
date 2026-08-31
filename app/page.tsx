@@ -11,7 +11,7 @@ export default function Dashboard() {
     <section className="hero">
       <span className="eyebrow">UP Manila School of Health Sciences</span>
       <h1>Continue the work.<br/>Strengthen the community.</h1>
-      <p>PADAYON is a living community-health toolkit for community clerks, interns, faculty, and preceptors—bringing together community profiles, projects, handovers, forms, and institutional memory.</p>
+      <p>The Community Health Toolkit is a living digital resource for community clerks, interns, faculty, and preceptors—bringing together community profiles, projects, handovers, forms, learning resources, and institutional memory.</p>
       <div className="hero-actions">
         <Link className="button button-primary" href="/rotation">Open my rotation <Icon name="arrow"/></Link>
         <Link className="button button-secondary" href="/communities">Browse communities</Link>
