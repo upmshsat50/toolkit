@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
 import { Icon } from "./Icons";
 
 const nav = [
-  ["Home", "/", "home"],
+  ["Home", "/dashboard", "home"],
   ["My Rotation", "/rotation", "rotation"],
   ["Communities", "/communities", "communities"],
   ["Projects", "/projects", "projects"],
@@ -16,6 +17,15 @@ const nav = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  async function signOut() {
+    const supabase = createClient();
+    if (supabase) await supabase.auth.signOut();
+    router.replace("/login");
+    router.refresh();
+  }
+
   return (
     <aside className="sidebar">
       <div className="brand">
@@ -27,7 +37,7 @@ export function Sidebar() {
       </div>
       <nav className="sidebar-nav" aria-label="Main navigation">
         {nav.map(([label, href, icon]) => {
-          const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+          const active = pathname === href || pathname.startsWith(`${href}/`);
           return (
             <Link className={active ? "nav-item active" : "nav-item"} href={href} key={href}>
               <Icon name={icon} />
@@ -36,6 +46,7 @@ export function Sidebar() {
           );
         })}
       </nav>
+      <button className="sidebar-signout" type="button" onClick={signOut}>Sign out</button>
       <div className="sidebar-note">
         <strong>Community sites</strong>
         <span>Palo · Alangalang · Dagami · Tolosa · Tanauan · Dulag</span>
