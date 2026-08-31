@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7b1113">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Community Health Toolkit Portal | UPM-SHS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="portal-body">
+  <div id="portal-loading" class="portal-loading">
+    <img src="assets/shs-logo.png" alt="UPM-SHS">
+    <strong>Opening Community Health Toolkit…</strong>
+    <span>Checking your authorized session.</span>
+  </div>
+
+  <div id="portal-app" class="portal-app" hidden>
+    <header class="portal-topbar">
+      <a class="portal-topbar-brand" href="index.html">
+        <img src="assets/up-upm-branding.png" alt="UP and UP Manila">
+        <span class="portal-topbar-divider"></span>
+        <img class="portal-topbar-shs" src="assets/shs-logo.png" alt="UPM-SHS">
+        <div>
+          <strong>Community Health Toolkit</strong>
+          <span>UP Manila School of Health Sciences</span>
+        </div>
+      </a>
+
+      <div class="portal-account">
+        <div class="portal-avatar" data-user-initials>UP</div>
+        <div class="portal-user-copy">
+          <strong data-user-name>Authorized user</strong>
+          <span data-user-email></span>
+        </div>
+        <button class="portal-signout" data-sign-out type="button">Sign out</button>
+      </div>
+    </header>
+
+    <div class="portal-shell">
+      <aside class="portal-sidebar">
+        <div class="portal-sidebar-title">Toolkit</div>
+        <nav>
+          <a class="active" href="#dashboard">Dashboard</a>
+          <a href="#rotation">My Rotation</a>
+          <a href="#communities">Communities</a>
+          <a href="#projects">Projects</a>
+          <a href="#handover">Handover</a>
+          <a href="#resources">Resources</a>
+          <a href="#directory">Directory</a>
+        </nav>
+
+        <div class="sidebar-note">
+          <strong>Working SaaS starter</strong>
+          <span>Authentication is live. Database modules can be connected next.</span>
+        </div>
+      </aside>
+
+      <main class="portal-main" id="dashboard">
+        <section class="portal-welcome">
+          <span class="portal-kicker">Community workspace</span>
+          <h1>Welcome, <span data-user-name>authorized user</span>.</h1>
+          <p>
+            Continue your community work, review previous projects, access learning resources,
+            and prepare useful records for the next batch.
+          </p>
+        </section>
+
+        <section class="portal-stat-grid">
+          <article>
+            <span>Assigned community</span>
+            <strong>To be assigned</strong>
+            <small>Will be loaded from your profile/rotation record.</small>
+          </article>
+          <article>
+            <span>Active projects</span>
+            <strong>—</strong>
+            <small>Project database connection is the next phase.</small>
+          </article>
+          <article>
+            <span>Pending handovers</span>
+            <strong>—</strong>
+            <small>Structured handover workflow ready for integration.</small>
+          </article>
+          <article>
+            <span>Toolkit resources</span>
+            <strong>6</strong>
+            <small>Starter categories prepared for upload.</small>
+          </article>
+        </section>
+
+        <div class="portal-content-grid">
+          <section class="portal-panel" id="rotation">
+            <div class="portal-panel-heading">
+              <div>
+                <span class="portal-label">Start here</span>
+                <h2>My Rotation</h2>
+              </div>
+              <span class="portal-chip">Setup pending</span>
+            </div>
+
+            <div class="rotation-checklist">
+              <label><input type="checkbox"> Review your assigned community profile</label>
+              <label><input type="checkbox"> Review previous projects and latest handover</label>
+              <label><input type="checkbox"> Review scope, referral pathways, and safety notes</label>
+              <label><input type="checkbox"> Review community assessment and project forms</label>
+            </div>
+          </section>
+
+          <section class="portal-panel" id="resources">
+            <div class="portal-panel-heading">
+              <div>
+                <span class="portal-label">Quick access</span>
+                <h2>Toolkit Resources</h2>
+              </div>
+            </div>
+            <div class="quick-resource-list">
+              <a href="#"><strong>Manual & Learning Modules</strong><span>Program guides and orientation resources →</span></a>
+              <a href="#"><strong>Forms & Templates</strong><span>Assessment, planning, M&E, and handover forms →</span></a>
+              <a href="#"><strong>Sample Outputs</strong><span>De-identified examples from previous community work →</span></a>
+            </div>
+          </section>
+        </div>
+
+        <section class="portal-panel" id="communities">
+          <div class="portal-panel-heading">
+            <div>
+              <span class="portal-label">Community directory</span>
+              <h2>Current Learning Sites</h2>
+            </div>
+          </div>
+
+          <div class="portal-community-grid">
+            <article><span>01</span><strong>Palo</strong><small>Leyte</small></article>
+            <article><span>02</span><strong>Alangalang</strong><small>Dr. Angelita Jaya</small></article>
+            <article><span>03</span><strong>Dagami</strong><small>Leyte</small></article>
+            <article><span>04</span><strong>Tolosa</strong><small>Dr. Maria Sheryl P. Indencia</small></article>
+            <article><span>05</span><strong>Tanauan</strong><small>Leyte</small></article>
+            <article><span>06</span><strong>Dulag</strong><small>Leyte</small></article>
+          </div>
+        </section>
+
+        <section class="portal-next-step">
+          <div>
+            <span class="portal-label">Next development phase</span>
+            <h2>Connect the portal to actual Supabase tables.</h2>
+            <p>
+              Authentication is now separated from the public site. Next we can add profiles/roles,
+              rotations, communities, project records, files, handovers, and row-level access.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>

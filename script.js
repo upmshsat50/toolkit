@@ -26,15 +26,7 @@ if (password && showPassword) {
   });
 }
 
-const loginForm = document.getElementById("login-form");
-const loginStatus = document.getElementById("login-status");
 
-if (loginForm && loginStatus) {
-  loginForm.addEventListener("submit", event => {
-    event.preventDefault();
-    loginStatus.textContent = "Portal authentication will be connected in the next phase.";
-  });
-}
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", () => {
