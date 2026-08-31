@@ -28,14 +28,23 @@
 
   const client = window.supabase.createClient(url, key);
 
+  function safe(value = "") {
+    return String(value)
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
   function setLoadingCard({title, text, detail = "", action = ""}) {
     if (!loading) return;
     loading.hidden = false;
     loading.innerHTML = `
       <img src="assets/shs-logo.png" alt="UPM-SHS">
-      <strong>${title}</strong>
-      <span>${text}</span>
-      ${detail ? `<small class="portal-status-detail">${detail}</small>` : ""}
+      <strong>${safe(title)}</strong>
+      <span>${safe(text)}</span>
+      ${detail ? `<small class="portal-status-detail">${safe(detail)}</small>` : ""}
       ${action}
     `;
   }
@@ -43,6 +52,60 @@
   async function signOut() {
     await client.auth.signOut();
     window.location.replace("index.html");
+  }
+
+  async function loadCurrentRotation(userId) {
+    const { data, error } = await client
+      .from("rotation_assignments")
+      .select(`
+        id,course_code,rotation_type,batch,start_date,end_date,status,notes,
+        communities(name,province,municipality,preceptor_name,description)
+      `)
+      .eq("user_id", userId)
+      .eq("status", "active")
+      .order("created_at", { ascending: false })
+      .limit(1);
+
+    const summary = document.getElementById("current-rotation-summary");
+    const communityEl = document.getElementById("dashboard-community");
+    const detailEl = document.getElementById("dashboard-rotation-detail");
+
+    if (error || !data?.length) {
+      if (summary) {
+        summary.innerHTML = `
+          <strong>No active rotation assigned yet.</strong>
+          <span>Your coordinator can assign your community from the Admin portal.</span>
+        `;
+      }
+      if (communityEl) communityEl.textContent = "To be assigned";
+      if (detailEl) detailEl.textContent = "No active rotation assignment yet.";
+      return;
+    }
+
+    const rotation = data[0];
+    const community = rotation.communities || {};
+    const communityName = community.name || "Assigned community";
+    const details = [
+      rotation.rotation_type,
+      rotation.course_code,
+      rotation.batch
+    ].filter(Boolean).join(" · ");
+
+    if (communityEl) communityEl.textContent = communityName;
+    if (detailEl) detailEl.textContent = details || "Active rotation";
+
+    if (summary) {
+      const preceptor = community.preceptor_name
+        ? `<small>Preceptor: ${safe(community.preceptor_name)}</small>`
+        : "";
+
+      summary.innerHTML = `
+        <span class="portal-label">Current assignment</span>
+        <strong>${safe(communityName)}</strong>
+        <span>${safe(details || "Active rotation")}</span>
+        ${preceptor}
+      `;
+    }
   }
 
   async function start() {
@@ -64,7 +127,7 @@
       setLoadingCard({
         title: "Profile setup incomplete",
         text: "Your authenticated account exists, but the Toolkit profile could not be loaded.",
-        detail: "Ask the program coordinator to verify that supabase-schema.sql was run successfully.",
+        detail: "Ask the program coordinator to verify the profiles table.",
         action: `<button id="status-signout" class="button button-maroon" type="button">Sign out</button>`
       });
       document.getElementById("status-signout")?.addEventListener("click", signOut);
@@ -122,25 +185,11 @@
     const email = profile.email || user.email || "";
     const role = profile.role || "student";
 
-    document.querySelectorAll("[data-user-name]").forEach(el => {
-      el.textContent = fullName;
-    });
-
-    document.querySelectorAll("[data-user-email]").forEach(el => {
-      el.textContent = email;
-    });
-
-    document.querySelectorAll("[data-user-role]").forEach(el => {
-      el.textContent = role.charAt(0).toUpperCase() + role.slice(1);
-    });
-
-    document.querySelectorAll("[data-user-batch]").forEach(el => {
-      el.textContent = profile.batch || "—";
-    });
-
-    document.querySelectorAll("[data-user-year]").forEach(el => {
-      el.textContent = profile.year_level || "—";
-    });
+    document.querySelectorAll("[data-user-name]").forEach(el => el.textContent = fullName);
+    document.querySelectorAll("[data-user-email]").forEach(el => el.textContent = email);
+    document.querySelectorAll("[data-user-role]").forEach(el => el.textContent = role.charAt(0).toUpperCase() + role.slice(1));
+    document.querySelectorAll("[data-user-batch]").forEach(el => el.textContent = profile.batch || "—");
+    document.querySelectorAll("[data-user-year]").forEach(el => el.textContent = profile.year_level || "—");
 
     const initials = fullName
       .split(/[\s._-]+/)
@@ -149,12 +198,17 @@
       .map(part => part.charAt(0).toUpperCase())
       .join("") || "UP";
 
-    document.querySelectorAll("[data-user-initials]").forEach(el => {
-      el.textContent = initials;
-    });
+    document.querySelectorAll("[data-user-initials]").forEach(el => el.textContent = initials);
+
+    const adminLink = document.getElementById("admin-link");
+    if (adminLink && ["admin","coordinator"].includes(role)) {
+      adminLink.hidden = false;
+    }
 
     if (loading) loading.hidden = true;
     if (app) app.hidden = false;
+
+    await loadCurrentRotation(user.id);
   }
 
   document.querySelectorAll("[data-sign-out]").forEach(button => {

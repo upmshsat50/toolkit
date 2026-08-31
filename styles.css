@@ -562,3 +562,142 @@ button,input{font:inherit}
   .signup-card-footer{margin:20px -18px -22px;padding:14px 18px;flex-direction:column;text-align:center}
   .pending-actions{flex-direction:column;width:min(320px,100%)}
 }
+
+
+/* =========================================================
+   PHASE 2 SaaS — ADMIN + REAL ROTATION DATA
+   ========================================================= */
+.admin-return-link{text-decoration:none;display:inline-flex;align-items:center}
+.current-rotation-summary{
+  background:#f3f6ef;
+  border-left:4px solid var(--green);
+  padding:13px 14px;
+  display:grid;
+  gap:3px;
+  margin-bottom:16px;
+}
+.current-rotation-summary>strong{
+  font-family:var(--serif);
+  color:var(--maroon);
+  font-size:18px;
+}
+.current-rotation-summary>span:not(.portal-label),
+.current-rotation-summary>small{
+  font-family:var(--serif);
+  color:var(--muted);
+  font-size:10px;
+}
+
+.admin-main{max-width:1550px}
+.admin-welcome{max-width:920px}
+.admin-stat-grid{margin-bottom:22px}
+.admin-section{scroll-margin-top:105px}
+.admin-panel-heading{align-items:center}
+.admin-panel-heading>div:first-child>p{
+  margin:5px 0 0;
+  font-family:var(--serif);
+  font-size:11px;
+  color:var(--muted)
+}
+.admin-toolbar{display:flex;gap:8px;flex-wrap:wrap}
+.admin-toolbar input,.admin-toolbar select{
+  height:38px;border:1px solid var(--line);background:#fff;padding:0 10px;font-size:10px;min-width:180px
+}
+.admin-message{
+  min-height:20px;
+  margin:-5px 0 8px;
+  font-size:10px;
+  font-family:var(--serif);
+  color:var(--muted)
+}
+.admin-message.error{color:#a2181b}
+.admin-message.success{color:var(--green)}
+.admin-table-wrap{overflow-x:auto;border:1px solid var(--line)}
+.admin-table{width:100%;border-collapse:collapse;min-width:850px;background:#fff}
+.admin-table th{
+  background:#f2eee6;color:#5d554d;
+  text-align:left;
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  padding:10px 12px;
+  border-bottom:1px solid var(--line)
+}
+.admin-table td{
+  padding:11px 12px;
+  border-bottom:1px solid #e9e3da;
+  vertical-align:middle;
+  font-size:10px
+}
+.admin-table tbody tr:last-child td{border-bottom:0}
+.table-user,.table-stack{display:grid;gap:2px}
+.table-user strong,.table-stack strong{font-family:var(--serif);font-size:12px;color:var(--green)}
+.table-user span,.table-stack span{font-family:var(--serif);font-size:10px}
+.table-user small,.table-stack small{font-family:var(--serif);font-size:8px;color:var(--muted)}
+.table-user small{color:var(--maroon);font-weight:800;text-transform:uppercase}
+.table-select{
+  min-width:105px;height:34px;border:1px solid var(--line);background:#fff;padding:0 7px;font-size:9px;text-transform:capitalize
+}
+.table-actions{display:flex;gap:5px;flex-wrap:wrap}
+.mini-action{
+  border:1px solid var(--line);background:#fff;padding:6px 8px;font-size:8px;font-weight:900;text-transform:uppercase;cursor:pointer
+}
+.mini-action.approve{background:var(--green);color:#fff;border-color:var(--green)}
+.mini-action.save{color:var(--maroon);border-color:#c98b8c}
+.mini-action.suspend{color:#7b1113;background:#f6e4e4;border-color:#e1b4b5}
+.table-loading,.table-empty{text-align:center!important;padding:28px!important;color:var(--muted);font-family:var(--serif)!important}
+
+.admin-inline-form,.rotation-admin-form{
+  background:#f7f3eb;
+  border:1px solid var(--line);
+  padding:16px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:11px;
+  margin-bottom:13px
+}
+.admin-inline-form[hidden]{display:none}
+.admin-inline-form label,.rotation-admin-form label{display:grid;gap:4px}
+.admin-inline-form label>span,.rotation-admin-form label>span{
+  font-size:8px;text-transform:uppercase;letter-spacing:.06em;color:#5f574e;font-weight:900
+}
+.admin-inline-form input,.rotation-admin-form input,.rotation-admin-form select{
+  height:38px;border:1px solid #cfc6ba;background:#fff;padding:0 9px;font-size:10px
+}
+.form-wide{grid-column:span 2}
+.admin-form-actions{display:flex;gap:8px;align-items:end}
+.admin-form-actions .button{min-height:38px;font-size:9px;padding:0 12px}
+
+.admin-community-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.admin-community-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--green);
+  background:#fff;
+  padding:16px;
+  position:relative;
+  min-height:150px
+}
+.admin-community-card.inactive{opacity:.62;border-top-color:#8a8178}
+.community-card-status{
+  position:absolute;right:12px;top:11px;
+  font-size:7px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--green);font-weight:900
+}
+.admin-community-card h3{font-family:var(--serif);font-size:21px;color:var(--maroon);margin:5px 0 0}
+.admin-community-card p{font-family:var(--serif);font-size:10px;margin:2px 0 15px;color:var(--muted)}
+.admin-community-card small{display:block;font-family:var(--serif);font-size:9px;color:#4c473f;border-top:1px solid var(--line);padding-top:9px}
+.community-card-actions{display:flex;gap:6px;margin-top:12px}
+.rotation-table-wrap{margin-top:14px}
+
+@media(max-width:1100px){
+  .admin-inline-form,.rotation-admin-form{grid-template-columns:repeat(2,1fr)}
+  .admin-community-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .admin-panel-heading{align-items:flex-start;flex-direction:column}
+  .admin-toolbar{width:100%}
+  .admin-toolbar input,.admin-toolbar select{flex:1;min-width:140px}
+  .admin-inline-form,.rotation-admin-form{grid-template-columns:1fr}
+  .form-wide{grid-column:auto}
+  .admin-community-grid{grid-template-columns:1fr}
+}
