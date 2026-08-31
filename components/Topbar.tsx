@@ -5,7 +5,7 @@ export function Topbar() {
     <header className="topbar">
       <div className="search-box">
         <Icon name="search" />
-        <input aria-label="Search PADAYON" placeholder="Search communities, projects, people, resources…" />
+        <input aria-label="Search Community Health Toolkit" placeholder="Search communities, projects, people, resources…" />
       </div>
       <div className="user-chip">
         <div className="avatar">GD</div>

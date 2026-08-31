@@ -21,8 +21,8 @@ export function Sidebar() {
       <div className="brand">
         <div className="brand-mark" aria-hidden="true">UP</div>
         <div>
-          <strong>PADAYON</strong>
-          <span>UPM-SHS Community Health Platform</span>
+          <strong>Community Health Toolkit</strong>
+          <span>UPM-SHS · Community Clerkship & Internship</span>
         </div>
       </div>
       <nav className="sidebar-nav" aria-label="Main navigation">
