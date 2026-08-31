@@ -1,37 +1,44 @@
-const menuBtn = document.querySelector(".menu-button");
-const nav = document.querySelector(".site-nav");
+const menu = document.querySelector(".mobile-menu");
+const nav = document.querySelector(".main-nav");
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
+if (menu && nav) {
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
+  nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-expanded", "false");
     });
   });
 }
 
-const pw = document.getElementById("password");
-const showPw = document.getElementById("show-password");
+const password = document.getElementById("password");
+const showPassword = document.getElementById("show-password");
 
-if (pw && showPw) {
-  showPw.addEventListener("click", () => {
-    const show = pw.type === "password";
-    pw.type = show ? "text" : "password";
-    showPw.textContent = show ? "Hide" : "Show";
+if (password && showPassword) {
+  showPassword.addEventListener("click", () => {
+    const showing = password.type === "text";
+    password.type = showing ? "password" : "text";
+    showPassword.textContent = showing ? "Show" : "Hide";
   });
 }
 
-const form = document.getElementById("login-form");
-const status = document.getElementById("login-status");
+const loginForm = document.getElementById("login-form");
+const loginStatus = document.getElementById("login-status");
 
-if (form && status) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    status.textContent = "Portal authentication will be connected in the next phase.";
+if (loginForm && loginStatus) {
+  loginForm.addEventListener("submit", event => {
+    event.preventDefault();
+    loginStatus.textContent = "Portal authentication will be connected in the next phase.";
   });
 }
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", () => {
+    const id = link.getAttribute("href");
+    if (id === "#") return;
+  });
+});
