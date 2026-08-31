@@ -1,37 +1,37 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.main-nav');
+const menuBtn = document.querySelector(".menu-button");
+const nav = document.querySelector(".site-nav");
 
-if (menuToggle && nav) {
-  menuToggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(open));
+if (menuBtn && nav) {
+  menuBtn.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
   });
 
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
     });
   });
 }
 
-const togglePassword = document.getElementById('toggle-password');
-const passwordInput = document.getElementById('password');
+const pw = document.getElementById("password");
+const showPw = document.getElementById("show-password");
 
-if (togglePassword && passwordInput) {
-  togglePassword.addEventListener('click', () => {
-    const hidden = passwordInput.type === 'password';
-    passwordInput.type = hidden ? 'text' : 'password';
-    togglePassword.textContent = hidden ? 'Hide' : 'Show';
+if (pw && showPw) {
+  showPw.addEventListener("click", () => {
+    const show = pw.type === "password";
+    pw.type = show ? "text" : "password";
+    showPw.textContent = show ? "Hide" : "Show";
   });
 }
 
-const loginForm = document.getElementById('login-form');
-const loginMessage = document.getElementById('login-message');
+const form = document.getElementById("login-form");
+const status = document.getElementById("login-status");
 
-if (loginForm && loginMessage) {
-  loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    loginMessage.textContent = 'Toolkit login will be connected once the protected portal is enabled.';
+if (form && status) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    status.textContent = "Portal authentication will be connected in the next phase.";
   });
 }
